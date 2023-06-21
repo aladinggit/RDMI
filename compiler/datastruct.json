@@ -1,0 +1,381 @@
+{
+    "entry_point":{
+        "init_task":"task_struct",
+        "modules":"list_head",
+        "sys_call_table":"ptr",
+        "tty_drivers":"list_head",
+        "init_net":"net",
+        "proc_root":"proc_dir_entry",
+        "keyboard_notifier_list":"atomic_notifier_head",
+        "tcp4_seq_afinfo":"tcp_seq_afinfo"
+    },
+    "data_structure":{
+        "task_struct": {
+            "tasks": {
+                "type":"list_head",
+                "offset": 1960,
+                "size": 16,
+                "pointer": 0
+            },
+            "creds": {
+                "type": "cred",
+                "offset": 2632,
+                "size": 8,
+                "pointer": 1
+            },
+            "name": {
+                "type": "string",
+                "offset": 2640,
+                "size": 32,
+                "pointer": 0
+            },
+            "pid": {
+                "type": "int",
+                "offset": 2216,
+                "size": 4,
+                "pointer": 0
+            },
+            "files": {
+                "type": "files_struct",
+                "offset": 2704,
+                "size": 8,
+                "pointer": 1
+            },
+            "mm": {
+                "type": "mm_struct",
+                "offset": 2040,
+                "size": 8,
+                "pointer": 1
+            }
+        },
+        "files_struct": {
+            "fdt": {
+                "type": "fdtable",
+                "offset": 32,
+                "size": 8,
+                "pointer": 1
+            }
+        },
+        "fdtable": {
+            "fd": {
+                "type": "file",
+                "offset": 8,
+                "size": 8,
+                "pointer": 2
+            },
+            "max_fds": {
+                "type": "int",
+                "offset": 0,
+                "size": 4,
+                "pointer": 0
+            }
+        },
+        "file": {
+            "f_path": {
+                "type": "path",
+                "offset": 16,
+                "size": 16,
+                "pointer": 0
+            }
+        },
+        "path": {
+            "dentry": {
+                "type": "dentry",
+                "offset": 8,
+                "size": 16,
+                "pointer": 1
+            }
+        },
+        "dentry": {
+            "d_iname": {
+                "type": "string",
+                "offset": 56,
+                "size": 32,
+                "pointer": 0
+            }
+        },
+        "list_head": {
+            "next": {
+                "type": "list_head",
+                "offset": 0,
+                "size": 8,
+                "pointer": 1
+            },
+            "prev": {
+                "type": "list_head",
+                "offset": 8,
+                "size": 8,
+                "pointer": 1
+            }
+        },
+        "cred":{
+            "uid": {
+                "type": "int",
+                "offset": 4,
+                "size": 4,
+                "pointer": 0
+            },
+            "gid": {
+                "type": "int",
+                "offset": 12,
+                "size": 4,
+                "pointer": 0
+            }
+        },
+        "mm_struct":{
+            "mmap": {
+                "type": "vm_area_struct",
+                "offset": 0,
+                "size": 8,
+                "pointer": 1
+            }
+        },
+        "vm_area_struct":{
+            "vm_start": {
+                "type": "ptr",
+                "offset": 0,
+                "size": 8,
+                "pointer": 0
+            },
+            "vm_end": {
+                "type": "ptr",
+                "offset": 8,
+                "size": 8,
+                "pointer": 0
+            },
+            "vm_next": {
+                "type": "vm_area_struct",
+                "offset": 16,
+                "size": 8,
+                "pointer": 1
+            },
+            "vm_page_prot": {
+                "type": "ptr",
+                "offset": 72,
+                "size": 4,
+                "pointer": 0
+            }
+        },
+        "module":{
+            "list": {
+                "type": "list_head",
+                "offset": 8,
+                "size": 8,
+                "pointer": 0
+            },
+            "name": {
+                "type": "string",
+                "offset": 24,
+                "size": 32,
+                "pointer": 0
+            }
+        },
+        "tty_driver":{
+            "num": {
+                "type": "int",
+                "offset": 52,
+                "size": 4,
+                "pointer": 0
+            },
+            "ttys": {
+                "type": "tty_struct",
+                "offset": 128,
+                "size": 8,
+                "pointer": 2
+            },
+            "tty_drivers":{
+                "type":"list_head",
+                "offset": 168,
+                "size":  16,
+                "pointer": 0
+            }
+        },
+        "tty_struct":{
+            "ldisc": {
+                "type": "tty_ldisc",
+                "offset": 88,
+                "size": 8,
+                "pointer": 1
+            }
+        },
+        "tty_ldisc":{
+            "ops": {
+                "type": "tty_ldisc_ops",
+                "offset": 0,
+                "size": 8,
+                "pointer": 1
+            }
+        },
+        "tty_ldisc_ops":{
+            "receive_buf": {
+                "type": "ptr",
+                "offset": 104,
+                "size": 8,
+                "pointer": 0
+            },
+            "receive_buf2": {
+                "type": "ptr",
+                "offset": 128,
+                "size": 8,
+                "pointer": 0
+            }
+        },
+        "net":{
+            "nf": {
+                "type": "netns_nf",
+                "offset": 3464,
+                "size": 160,
+                "pointer": 0
+            }
+        },
+        "netns_nf":{
+            "hooks": {
+                "type": "nf_hook_entries",
+                "offset": 128,
+                "size": 8,
+                "pointer": 1
+            }
+        },
+        "nf_hook_entries":{
+            "num_hook_entries": {
+                "type": "int",
+                "offset": 0,
+                "size": 2,
+                "pointer": 0
+            },
+            "hooks": {
+                "type": "nf_hook_entry",
+                "offset": 8,
+                "size": 16,
+                "pointer": 0
+            },
+            "size":0
+        },
+        "nf_hook_entry":{
+            "hook": {
+                "type": "ptr",
+                "offset": 0,
+                "size": 8,
+                "pointer": 0
+            },
+            "size": 16
+        },
+        "proc_dir_entry":{
+            "proc_fops": {
+                "type": "file_operations",
+                "offset": 40,
+                "size": 8,
+                "pointer": 1
+            }
+        },
+        "file_operations":{
+            "llseek": {
+                "type": "ptr",
+                "offset": 8,
+                "size": 8,
+                "pointer": 0
+            },
+            "read": {
+                "type": "ptr",
+                "offset": 16,
+                "size": 8,
+                "pointer": 0
+            },
+            "write": {
+                "type": "ptr",
+                "offset": 24,
+                "size": 8,
+                "pointer": 0
+            },
+            "iterate": {
+                "type": "ptr",
+                "offset": 32,
+                "size": 8,
+                "pointer": 0
+            },
+            "iterate_shared": {
+                "type": "ptr",
+                "offset": 40,
+                "size": 8,
+                "pointer": 0
+            }
+        },
+        "atomic_notifier_head":{
+            "head": {
+                "type": "notifier_block",
+                "offset": 8,
+                "size": 8,
+                "pointer": 1
+            }
+        },
+        "notifier_block":{
+            "next": {
+                "type": "notifier_block",
+                "offset": 8,
+                "size": 8,
+                "pointer": 1
+            },
+            "notifier_call": {
+                "type": "ptr",
+                "offset": 0,
+                "size": 8,
+                "pointer": 0
+            }
+        },
+        "tcp_seq_afinfo":{
+            "seq_fops": {
+                "type": "file_operations",
+                "offset": 16,
+                "size": 8,
+                "pointer": 1
+            },
+            "seq_ops": {
+                "type": "seq_operations",
+                "offset": 24,
+                "size": 0,
+                "pointer": 0
+            }
+        },
+        "seq_operations":{
+            "stop": {
+                "type": "ptr",
+                "offset": 0,
+                "size": 8,
+                "pointer": 0
+            },
+            "start": {
+                "type": "ptr",
+                "offset": 8,
+                "size": 8,
+                "pointer": 0
+            },
+            "next": {
+                "type": "ptr",
+                "offset": 16,
+                "size": 8,
+                "pointer": 0
+            },
+            "show": {
+                "type": "ptr",
+                "offset": 24,
+                "size": 8,
+                "pointer": 0
+            }
+        },
+        "ptr":{
+            "this": {
+                "type": "ptr",
+                "offset": 0,
+                "size": 8,
+                "pointer": 0
+            },
+            "size": 8
+        }
+    },
+    "runtime_variable":{
+        "init_task.tasks":"0xffffffffae013480",
+        "modules.list":"0xffffffffae0ead30",
+        "tty_drivers.next":"0xffffffffae188520",
+        "null":"0x0000000000000000"
+    }
+}

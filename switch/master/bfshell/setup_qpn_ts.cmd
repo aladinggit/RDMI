@@ -1,0 +1,67 @@
+pd-master
+
+pd remove_payload_tab add_entry nop ib_aeth_valid 1 md_len 0 eg_intr_md_from_parser_aux_clone_src 0
+pd remove_payload_tab add_entry remove_payload_4 ib_aeth_valid 1 md_len 4 eg_intr_md_from_parser_aux_clone_src 0
+pd remove_payload_tab add_entry remove_payload_8 ib_aeth_valid 1 md_len 8 eg_intr_md_from_parser_aux_clone_src 0
+pd remove_payload_tab add_entry remove_payload_16 ib_aeth_valid 1 md_len 16 eg_intr_md_from_parser_aux_clone_src 0
+pd remove_payload_tab add_entry remove_payload_32 ib_aeth_valid 1 md_len 32 eg_intr_md_from_parser_aux_clone_src 0
+
+pd modify_header_len_tab add_entry modify_header_len ib_aeth_valid 1 eg_intr_md_from_parser_aux_clone_src 0
+
+pd cache_offset_into_meta_tab add_entry cache_offset_into_meta ib_aeth_valid 1 action_addr1 0xffff9926 action_addr2 0x00000000 action_addr3 0xffff9926 action_addr4 0xC8800000 action_addr5 0x00000000 action_addr6 0xC
+
+pd split_addr_high1_tab add_entry split_addr_high1 ib_aeth_valid 1 md_trans_mode 1 eg_intr_md_from_parser_aux_clone_src 0
+
+pd addr_translation_page_offset_tab add_entry addr_translation_page_offset_1 ib_aeth_valid 1 md_greater_4_start 4 md_greater_4_end 15 md_trans_mode 1 eg_intr_md_from_parser_aux_clone_src 0 priority 0
+pd addr_translation_page_offset_tab add_entry addr_translation_page_offset_2 ib_aeth_valid 1 md_greater_4_start 0 md_greater_4_end 3 md_trans_mode 1 eg_intr_md_from_parser_aux_clone_src 0 priority 0
+pd addr_translation_page_offset_tab add_entry addr_translation_phys_offset ib_aeth_valid 1 md_greater_4_start 0 md_greater_4_end 15 md_trans_mode 2 eg_intr_md_from_parser_aux_clone_src 0 priority 0
+
+
+pd cache_rkey_tab add_entry cache_rkey ib_aeth_valid 1 eg_intr_md_from_parser_aux_clone_src 0
+
+pd forward_rnic_tab add_entry forward_rnic ib_aeth_valid 1 
+
+pd read_addr_to_header_tab add_entry read_addr_to_header ib_aeth_valid 1 eg_intr_md_from_parser_aux_clone_src 0
+
+pd set_bth_reth_flags_tab add_entry set_bth_reth_flags ib_aeth_valid 1 eg_intr_md_from_parser_aux_clone_src 0
+
+pd remove_aeth_tab add_entry remove_aeth ib_aeth_valid 1 eg_intr_md_from_parser_aux_clone_src 0
+
+pd add_reth_tab add_entry add_reth ib_aeth_valid 1 eg_intr_md_from_parser_aux_clone_src 0
+
+pd split_addr_high16_tab add_entry split_addr_high_16 ib_aeth_valid 1
+pd split_addr_low16_tab add_entry split_addr_low_16 ib_aeth_valid 1
+
+pd split_addr_high32_tab add_entry split_addr_high32 ib_aeth_valid 1 md_len 8
+pd split_addr_low32_tab add_entry split_addr_low32 ib_aeth_valid 1 md_len 8
+
+pd trans_mode_tab add_entry trans_mode_1 ib_aeth_valid 1 md_aeth_addr_h 0xffff0000 md_aeth_addr_h_mask 0xffff0000 eg_intr_md_from_parser_aux_clone_src 0 priority 100
+pd trans_mode_tab add_entry trans_mode_2 ib_aeth_valid 1 md_aeth_addr_h 0xffffffff md_aeth_addr_h_mask 0xffffffff eg_intr_md_from_parser_aux_clone_src 0 priority 10
+
+pd mark_vmalloc_bit_p2_tab add_entry mark_vmalloc_bit ib_aeth_valid 1 md_addr_type 1 ib_payload_8_payLoad_4_start 0xc0 ib_payload_8_payLoad_4_end 0xff ib_payload_8_payLoad_6_start 0x00 ib_payload_8_payLoad_6_end 0xff priority 10
+pd mark_vmalloc_bit_p2_tab add_entry mark_vmalloc_bit ib_aeth_valid 1 md_addr_type 2 ib_payload_8_payLoad_4_start 0x00 ib_payload_8_payLoad_4_end 0xff ib_payload_8_payLoad_6_start 0xa0 ib_payload_8_payLoad_6_end 0xff priority 100
+pd mark_vmalloc_bit_p2_tab add_entry mark_vmalloc_bit ib_aeth_valid 1 md_addr_type 1 ib_payload_8_payLoad_4_start 0xc0 ib_payload_8_payLoad_4_end 0xff ib_payload_8_payLoad_6_start 0x00 ib_payload_8_payLoad_6_end 0xff priority 10
+pd mark_vmalloc_bit_p2_tab add_entry mark_vmalloc_bit ib_aeth_valid 1 md_addr_type 2 ib_payload_8_payLoad_4_start 0x00 ib_payload_8_payLoad_4_end 0xff ib_payload_8_payLoad_6_start 0xa0 ib_payload_8_payLoad_6_end 0xff priority 100
+pd mark_vmalloc_bit_p2_tab add_entry mark_vmalloc_bit ib_aeth_valid 1 md_addr_type 1 ib_payload_8_payLoad_4_start 0xc0 ib_payload_8_payLoad_4_end 0xff ib_payload_8_payLoad_6_start 0x00 ib_payload_8_payLoad_6_end 0xff priority 10
+pd mark_vmalloc_bit_p2_tab add_entry mark_vmalloc_bit ib_aeth_valid 1 md_addr_type 2 ib_payload_8_payLoad_4_start 0x00 ib_payload_8_payLoad_4_end 0xff ib_payload_8_payLoad_6_start 0xa0 ib_payload_8_payLoad_6_end 0xff priority 100
+
+
+pd magic_rev_tab add_entry magic_rev ib_aeth_valid 1 udp_srcPort 1111
+pd magic_set_tab add_entry magic_set ib_aeth_valid 1 action_eth 0xd8c497724b69
+
+pd magic_forward_tab add_entry set_egr ib_aeth_valid 1 ipv4_valid 1 ipv4_dstAddr 192.168.1.1 md_spoof 0 action_egress_spec 48
+pd magic_forward_tab add_entry set_egr ib_aeth_valid 1 ipv4_valid 1 ipv4_dstAddr 192.168.1.9 md_spoof 0 action_egress_spec 15
+
+pd magic_forward_tab add_entry set_egr ib_aeth_valid 1 ipv4_valid 1 ipv4_dstAddr 192.168.1.9 md_spoof 1 action_egress_spec 48
+pd magic_forward_tab add_entry set_egr ib_aeth_valid 1 ipv4_valid 1 ipv4_dstAddr 192.168.1.1 md_spoof 1 action_egress_spec 48
+
+pd mac_forward_tab add_entry set_egr ipv4_valid 0 ethernet_dstAddr 0x506b4b4ba14e action_egress_spec 48
+pd mac_forward_tab add_entry set_egr ipv4_valid 0 ethernet_dstAddr 0xd8c497724b69 action_egress_spec 15
+
+pd read_update_ts_end_tab add_entry read_update_ts_end ib_aeth_valid 1
+exit
+pd gen_spoof_alarm_tab add_entry gen_spoof_alarm ib_aeth_valid 1
+
+pd magic_set_tab add_entry magic_set ib_aeth_valid 1 udp_srcPort 1111 action_eth 0xd8c497724b69
+
+pd read_update_ts_end_tab add_entry read_update_ts_end ib_aeth_valid 1

@@ -1,0 +1,11 @@
+*.pyc
+RDMI
+*.log
+*.txt
+gencode_b/*
+gencode/*
+*.cmd
+
+*.pcap
+ripple
+.vscode
